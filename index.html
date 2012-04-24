@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Simple-lr-parser by tolgaakyuz</title>
+    
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Simple-lr-parser</h1>
+        <p>A Simple LR Parser</p>
+        <p class="view"><a href="https://github.com/tolgaakyuz/simple-LR-Parser">View the Project on GitHub <small>tolgaakyuz/simple-LR-Parser</small></a></p>
+        <ul>
+          <li><a href="https://github.com/tolgaakyuz/simple-LR-Parser/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/tolgaakyuz/simple-LR-Parser/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/tolgaakyuz/simple-LR-Parser">Fork On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h3>Welcome to A Simple LR Parser.</h3>
+
+<p>Since the given grammer rules can not be reduced to LL grammer format by using
+Left Recursion Removing Algorithms, LR Parser System is used as Parser Engine.
+The SLR(1) parsing table is constructed and feeded to the Parser Engine.</p>
+
+<p>Basic Usage :</p>
+
+<pre><code>/* Grammar */
+Grammar* g = new Grammar();
+g-&gt;loadFromFile("grammar.txt");
+
+/* Parser Generator */
+SLRParserGenerator* parserGenerator = new SLRParserGenerator(g);
+parserGenerator-&gt;generate();
+
+/* LR Parser */
+Parser* parser = new Parser(parserGenerator);
+parser-&gt;loadInputFromFile("input.txt");
+parser-&gt;parse();
+</code></pre>
+
+<h3>Files</h3>
+
+<p>input.txt   : Sample character sequence, which the given grammer definitions can recognize.
+debug.txt   : All the working process is buffered to thie file. Initially it is empty.
+grammar.txt : Grammer rules by use of BNF rules
+parser.h    : header file of the parser
+parser.cpp  : Implementation of header file
+main.cpp    : Simple usage scenario.</p>
+
+<h3>BNF Rules</h3>
+
+<p>terminals "", 
+non-terminals &lt;&gt; 
+or |.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/tolgaakyuz">tolgaakyuz</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
