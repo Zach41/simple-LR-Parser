@@ -1,0 +1,849 @@
+Creating grammar...
+Reading from grammar.txt...
+	Found a NonTerminal "S"
+	Found a NonTerminal "T"
+	Found a NonTerminal "C"
+	Found a NonTerminal "C"
+	Found a NonTerminal "A"
+	Found a NonTerminal "C"
+	Found a NonTerminal "B"
+	Found a NonTerminal "C"
+	Found a NonTerminal "C"
+	Found a NonTerminal "B"
+	Found a NonTerminal "F"
+	Found a NonTerminal "D"
+	Found a NonTerminal "E"
+	Found a NonTerminal "F"
+	Found a NonTerminal "F"
+	Found a Terminal "c"
+	Found a Terminal "c"
+	Found a NonTerminal "F"
+	Found a Terminal "b"
+	Found a NonTerminal "A"
+	Found a NonTerminal "A"
+	Found a Terminal "b"
+	Found a Terminal "_"
+	Found a Terminal "b"
+	Found a NonTerminal "B"
+	Found a NonTerminal "B"
+	Found a Terminal "b"
+	Found a Terminal "b"
+	Found a Terminal "d"
+	Found a Terminal "b"
+	Found a NonTerminal "F"
+	Found a NonTerminal "F"
+	Found a Terminal "b"
+	Found a Terminal "a"
+Reading is done!
+
+--------------------------------------------------------
+-------------------------Constructed BNF-------------------------
+--------------------------------------------------------
+X -> S | T.
+S -> C C.
+T -> A C.
+C -> B C | C B | F D | E F.
+E -> F c.
+D -> c F.
+A -> b A | A b | _.
+B -> b B | B b | b | d.
+F -> b F | F b | a |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | .
+
+Creating First and Follow Sets...
+
+--------------------------------------------------------
+-------------------------First Sets :-------------------------
+--------------------------------------------------------
+First of X : {b,d,a}
+First of S : {b,d,a}
+First of T : {b,d,a}
+First of C : {b,d,a}
+First of E : {b,a}
+First of D : {c}
+First of A : {b,_}
+First of B : {b,d}
+First of F : {b,a}
+
+--------------------------------------------------------
+-------------------------Follow Sets-------------------------
+--------------------------------------------------------
+Follow of X : {$}
+Follow of S : {$}
+Follow of T : {$}
+Follow of C : {$,b,d}
+Follow of E : {b,a}
+Follow of D : {$,b,d}
+Follow of A : {b,d,a}
+Follow of B : {b,d,a,$}
+Follow of F : {c,$,b,d}
+First and follow sets are constructed!
+Converting grammer to augemented version...
+
+--------------------------------------------------------
+-------------------------Converted BNF-------------------------
+--------------------------------------------------------
+S' -> X.
+X -> S | T.
+S -> C C.
+T -> A C.
+C -> B C | C B | F D | E F.
+E -> F c.
+D -> c F.
+A -> b A | A b | _.
+B -> b B | B b | b | d.
+F -> b F | F b | a |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | .
+
+Converting is done!
+Creating Canonical Closure Sets(States)...
+Canonical Closure Sets(States) Done!
+
+--------------------------------------------------------
+-------------------------States-------------------------
+--------------------------------------------------------
+
+----------------------------------------
+State Name : s0
+( goes to s1 when reads : X)
+( goes to s2 when reads : S)
+( goes to s3 when reads : T)
+( goes to s4 when reads : C)
+( goes to s5 when reads : A)
+( goes to s6 when reads : B)
+( goes to s7 when reads : F)
+( goes to s8 when reads : E)
+( goes to s9 when reads : b)
+( goes to s10 when reads : _)
+( goes to s11 when reads : d)
+( goes to s12 when reads : a)
+----------------------------------------
+S' --> .<X>
+X --> .<S>
+X --> .<T>
+S --> .<C><C>
+T --> .<A><C>
+C --> .<B><C>
+C --> .<C><B>
+C --> .<F><D>
+C --> .<E><F>
+A --> .<b><A>
+A --> .<A><b>
+A --> .<_>
+B --> .<b><B>
+B --> .<B><b>
+B --> .<b>
+B --> .<d>
+F --> .<b><F>
+F --> .<F><b>
+F --> .<a>
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+E --> .<F><c>
+
+----------------------------------------
+State Name : s1
+----------------------------------------
+S' --> <X>.
+
+----------------------------------------
+State Name : s2
+----------------------------------------
+X --> <S>.
+
+----------------------------------------
+State Name : s3
+----------------------------------------
+X --> <T>.
+
+----------------------------------------
+State Name : s4
+( goes to s13 when reads : C)
+( goes to s14 when reads : B)
+( goes to s7 when reads : F)
+( goes to s8 when reads : E)
+( goes to s9 when reads : b)
+( goes to s11 when reads : d)
+( goes to s12 when reads : a)
+----------------------------------------
+S --> <C>.<C>
+C --> <C>.<B>
+C --> .<B><C>
+C --> .<C><B>
+C --> .<F><D>
+C --> .<E><F>
+B --> .<b><B>
+B --> .<B><b>
+B --> .<b>
+B --> .<d>
+F --> .<b><F>
+F --> .<F><b>
+F --> .<a>
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+E --> .<F><c>
+
+----------------------------------------
+State Name : s5
+( goes to s15 when reads : C)
+( goes to s16 when reads : b)
+( goes to s6 when reads : B)
+( goes to s7 when reads : F)
+( goes to s8 when reads : E)
+( goes to s11 when reads : d)
+( goes to s12 when reads : a)
+----------------------------------------
+T --> <A>.<C>
+A --> <A>.<b>
+C --> .<B><C>
+C --> .<C><B>
+C --> .<F><D>
+C --> .<E><F>
+B --> .<b><B>
+B --> .<B><b>
+B --> .<b>
+B --> .<d>
+F --> .<b><F>
+F --> .<F><b>
+F --> .<a>
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+E --> .<F><c>
+
+----------------------------------------
+State Name : s6
+( goes to s17 when reads : C)
+( goes to s18 when reads : b)
+( goes to s6 when reads : B)
+( goes to s7 when reads : F)
+( goes to s8 when reads : E)
+( goes to s11 when reads : d)
+( goes to s12 when reads : a)
+----------------------------------------
+C --> <B>.<C>
+B --> <B>.<b>
+C --> .<B><C>
+C --> .<C><B>
+C --> .<F><D>
+C --> .<E><F>
+B --> .<b><B>
+B --> .<B><b>
+B --> .<b>
+B --> .<d>
+F --> .<b><F>
+F --> .<F><b>
+F --> .<a>
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+E --> .<F><c>
+
+----------------------------------------
+State Name : s7
+( goes to s19 when reads : D)
+( goes to s20 when reads : b)
+( goes to s21 when reads : c)
+----------------------------------------
+C --> <F>.<D>
+F --> <F>.<b>
+E --> <F>.<c>
+D --> .<c><F>
+
+----------------------------------------
+State Name : s8
+( goes to s22 when reads : F)
+( goes to s9 when reads : b)
+( goes to s12 when reads : a)
+----------------------------------------
+C --> <E>.<F>
+F --> .<b><F>
+F --> .<F><b>
+F --> .<a>
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+
+----------------------------------------
+State Name : s9
+( goes to s23 when reads : A)
+( goes to s24 when reads : B)
+( goes to s25 when reads : F)
+( goes to s9 when reads : b)
+( goes to s10 when reads : _)
+( goes to s11 when reads : d)
+( goes to s12 when reads : a)
+----------------------------------------
+A --> <b>.<A>
+B --> <b>.<B>
+B --> <b>.
+F --> <b>.<F>
+A --> .<b><A>
+A --> .<A><b>
+A --> .<_>
+B --> .<b><B>
+B --> .<B><b>
+B --> .<b>
+B --> .<d>
+F --> .<b><F>
+F --> .<F><b>
+F --> .<a>
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+
+----------------------------------------
+State Name : s10
+----------------------------------------
+A --> <_>.
+
+----------------------------------------
+State Name : s11
+----------------------------------------
+B --> <d>.
+
+----------------------------------------
+State Name : s12
+----------------------------------------
+F --> <a>.
+
+----------------------------------------
+State Name : s13
+( goes to s14 when reads : B)
+( goes to s9 when reads : b)
+( goes to s11 when reads : d)
+----------------------------------------
+S --> <C><C>.
+C --> <C>.<B>
+B --> .<b><B>
+B --> .<B><b>
+B --> .<b>
+B --> .<d>
+
+----------------------------------------
+State Name : s14
+( goes to s17 when reads : C)
+( goes to s18 when reads : b)
+( goes to s6 when reads : B)
+( goes to s7 when reads : F)
+( goes to s8 when reads : E)
+( goes to s11 when reads : d)
+( goes to s12 when reads : a)
+----------------------------------------
+C --> <C><B>.
+C --> <B>.<C>
+B --> <B>.<b>
+C --> .<B><C>
+C --> .<C><B>
+C --> .<F><D>
+C --> .<E><F>
+B --> .<b><B>
+B --> .<B><b>
+B --> .<b>
+B --> .<d>
+F --> .<b><F>
+F --> .<F><b>
+F --> .<a>
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+E --> .<F><c>
+
+----------------------------------------
+State Name : s15
+( goes to s14 when reads : B)
+( goes to s9 when reads : b)
+( goes to s11 when reads : d)
+----------------------------------------
+T --> <A><C>.
+C --> <C>.<B>
+B --> .<b><B>
+B --> .<B><b>
+B --> .<b>
+B --> .<d>
+
+----------------------------------------
+State Name : s16
+( goes to s24 when reads : B)
+( goes to s25 when reads : F)
+( goes to s9 when reads : b)
+( goes to s11 when reads : d)
+( goes to s12 when reads : a)
+----------------------------------------
+A --> <A><b>.
+B --> <b>.<B>
+B --> <b>.
+F --> <b>.<F>
+B --> .<b><B>
+B --> .<B><b>
+B --> .<b>
+B --> .<d>
+F --> .<b><F>
+F --> .<F><b>
+F --> .<a>
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+
+----------------------------------------
+State Name : s17
+( goes to s14 when reads : B)
+( goes to s9 when reads : b)
+( goes to s11 when reads : d)
+----------------------------------------
+C --> <B><C>.
+C --> <C>.<B>
+B --> .<b><B>
+B --> .<B><b>
+B --> .<b>
+B --> .<d>
+
+----------------------------------------
+State Name : s18
+( goes to s24 when reads : B)
+( goes to s25 when reads : F)
+( goes to s9 when reads : b)
+( goes to s11 when reads : d)
+( goes to s12 when reads : a)
+----------------------------------------
+B --> <B><b>.
+B --> <b>.<B>
+B --> <b>.
+F --> <b>.<F>
+B --> .<b><B>
+B --> .<B><b>
+B --> .<b>
+B --> .<d>
+F --> .<b><F>
+F --> .<F><b>
+F --> .<a>
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+
+----------------------------------------
+State Name : s19
+----------------------------------------
+C --> <F><D>.
+
+----------------------------------------
+State Name : s20
+----------------------------------------
+F --> <F><b>.
+
+----------------------------------------
+State Name : s21
+( goes to s26 when reads : F)
+( goes to s9 when reads : b)
+( goes to s12 when reads : a)
+----------------------------------------
+E --> <F><c>.
+D --> <c>.<F>
+F --> .<b><F>
+F --> .<F><b>
+F --> .<a>
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+F --> 
+
+----------------------------------------
+State Name : s22
+( goes to s20 when reads : b)
+----------------------------------------
+C --> <E><F>.
+F --> <F>.<b>
+
+----------------------------------------
+State Name : s23
+( goes to s16 when reads : b)
+----------------------------------------
+A --> <b><A>.
+A --> <A>.<b>
+
+----------------------------------------
+State Name : s24
+( goes to s18 when reads : b)
+----------------------------------------
+B --> <b><B>.
+B --> <B>.<b>
+
+----------------------------------------
+State Name : s25
+( goes to s20 when reads : b)
+----------------------------------------
+F --> <b><F>.
+F --> <F>.<b>
+
+----------------------------------------
+State Name : s26
+( goes to s20 when reads : b)
+----------------------------------------
+D --> <c><F>.
+F --> <F>.<b>
+Creating parsing table...
+Parsing Table is done!
+
+--------------------------------------------------------
+-------------------------Parsing Table-------------------------
+--------------------------------------------------------
+s0 -> 
+	($, reduce F -> )
+	(A, goto s5)
+	(B, goto s6)
+	(C, goto s4)
+	(E, goto s8)
+	(F, goto s7)
+	(S, goto s2)
+	(T, goto s3)
+	(X, goto s1)
+	(_, shift to s10)
+	(a, shift to s12)
+	(b, reduce F -> )
+	(c, reduce F -> )
+	(d, reduce F -> )
+s1 -> 
+	($, accept)
+s10 -> 
+	(a, reduce A -> <_>)
+	(b, reduce A -> <_>)
+	(d, reduce A -> <_>)
+s11 -> 
+	($, reduce B -> <d>)
+	(a, reduce B -> <d>)
+	(b, reduce B -> <d>)
+	(d, reduce B -> <d>)
+s12 -> 
+	($, reduce F -> <a>)
+	(b, reduce F -> <a>)
+	(c, reduce F -> <a>)
+	(d, reduce F -> <a>)
+s13 -> 
+	($, reduce S -> <C><C>)
+	(B, goto s14)
+	(b, shift to s9)
+	(d, shift to s11)
+s14 -> 
+	($, reduce F -> )
+	(B, goto s6)
+	(C, goto s17)
+	(E, goto s8)
+	(F, goto s7)
+	(a, shift to s12)
+	(b, reduce F -> )
+	(c, reduce F -> )
+	(d, reduce F -> )
+s15 -> 
+	($, reduce T -> <A><C>)
+	(B, goto s14)
+	(b, shift to s9)
+	(d, shift to s11)
+s16 -> 
+	($, reduce F -> )
+	(B, goto s24)
+	(F, goto s25)
+	(a, reduce B -> <b>)
+	(b, reduce F -> )
+	(c, reduce F -> )
+	(d, reduce F -> )
+s17 -> 
+	($, reduce C -> <B><C>)
+	(B, goto s14)
+	(b, reduce C -> <B><C>)
+	(d, reduce C -> <B><C>)
+s18 -> 
+	($, reduce F -> )
+	(B, goto s24)
+	(F, goto s25)
+	(a, reduce B -> <b>)
+	(b, reduce F -> )
+	(c, reduce F -> )
+	(d, reduce F -> )
+s19 -> 
+	($, reduce C -> <F><D>)
+	(b, reduce C -> <F><D>)
+	(d, reduce C -> <F><D>)
+s2 -> 
+	($, reduce X -> <S>)
+s20 -> 
+	($, reduce F -> <F><b>)
+	(b, reduce F -> <F><b>)
+	(c, reduce F -> <F><b>)
+	(d, reduce F -> <F><b>)
+s21 -> 
+	($, reduce F -> )
+	(F, goto s26)
+	(a, reduce E -> <F><c>)
+	(b, reduce F -> )
+	(c, reduce F -> )
+	(d, reduce F -> )
+s22 -> 
+	($, reduce C -> <E><F>)
+	(b, reduce C -> <E><F>)
+	(d, reduce C -> <E><F>)
+s23 -> 
+	(a, reduce A -> <b><A>)
+	(b, reduce A -> <b><A>)
+	(d, reduce A -> <b><A>)
+s24 -> 
+	($, reduce B -> <b><B>)
+	(a, reduce B -> <b><B>)
+	(b, reduce B -> <b><B>)
+	(d, reduce B -> <b><B>)
+s25 -> 
+	($, reduce F -> <b><F>)
+	(b, reduce F -> <b><F>)
+	(c, reduce F -> <b><F>)
+	(d, reduce F -> <b><F>)
+s26 -> 
+	($, reduce D -> <c><F>)
+	(b, reduce D -> <c><F>)
+	(d, reduce D -> <c><F>)
+s3 -> 
+	($, reduce X -> <T>)
+s4 -> 
+	($, reduce F -> )
+	(B, goto s14)
+	(C, goto s13)
+	(E, goto s8)
+	(F, goto s7)
+	(a, shift to s12)
+	(b, reduce F -> )
+	(c, reduce F -> )
+	(d, reduce F -> )
+s5 -> 
+	($, reduce F -> )
+	(B, goto s6)
+	(C, goto s15)
+	(E, goto s8)
+	(F, goto s7)
+	(a, shift to s12)
+	(b, reduce F -> )
+	(c, reduce F -> )
+	(d, reduce F -> )
+s6 -> 
+	($, reduce F -> )
+	(B, goto s6)
+	(C, goto s17)
+	(E, goto s8)
+	(F, goto s7)
+	(a, shift to s12)
+	(b, reduce F -> )
+	(c, reduce F -> )
+	(d, reduce F -> )
+s7 -> 
+	(D, goto s19)
+	(b, shift to s20)
+	(c, shift to s21)
+s8 -> 
+	($, reduce F -> )
+	(F, goto s22)
+	(a, shift to s12)
+	(b, reduce F -> )
+	(c, reduce F -> )
+	(d, reduce F -> )
+s9 -> 
+	($, reduce F -> )
+	(A, goto s23)
+	(B, goto s24)
+	(F, goto s25)
+	(_, shift to s10)
+	(a, reduce B -> <b>)
+	(b, reduce F -> )
+	(c, reduce F -> )
+	(d, reduce F -> )
+
+--------------------------------------------------------
+-------------------------Parsing Results-------------------------
+--------------------------------------------------------
+babcbabd(Makamsiz)
+acad$$$$(Makamsiz)

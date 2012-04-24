@@ -1,0 +1,35 @@
+# Grammar definition file
+# 
+# Tolga Akyüz, 2011
+
+<X>:<S>|<T>
+<S>:<C><C>
+<T>:<A><C>
+<C>:<B><C>|<C><B>|<F><D>|<E><F>
+<E>:<F>"c"
+<D>:"c"<F>
+<A>:"b"<A>|<A>"b"|"_"
+<B>:"b"<B>|<B>"b"|"b"|"d"
+<F>:"b"<F>|<F>"b"|"a"
+
+# babcbabdacad
+
+X -> S | T.
+S -> C C.
+T -> A C.
+C -> B C | C B | F D | E F.
+E -> F 3.
+D -> 3 F.
+A -> 2 A | A 2 | 5.
+B -> 2 B | B 2 | 2 | 4.
+F -> 2 F | F 2 | 1.
+
+X -> S | T.
+S -> CC.
+T -> AC.
+C -> BC | CB | FD | EF.
+E -> F c.
+D -> c F.
+A -> b A | A b | e.
+B -> b B | B b | b | d.
+F -> b F | F b | a.
